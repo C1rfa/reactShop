@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-
+//class
 export class Timer extends React.Component {
     constructor(props) {
         super(props);
@@ -55,5 +55,62 @@ export class Timer extends React.Component {
         )
     }
 }
+
+
+//funct
+
+
+export const TimerFunc = props => {
+    const state = JSON.parse(localStorage.getItem('state'))
+    const [isStarted, chnageStarted] = React.useState(state ? state.isStarted : false);
+    const [time, changeTime] = React.useState(state ? state.time : 0);
+    const timerID = React.useRef(null);
+
+    const handleStartStop = () => {
+        chnageStarted(!isStarted);
+    }
+
+    const handleReset = () => {
+        chnageStarted(false);
+        changeTime(0);
+    }
+
+    const setTimer = () => {
+        timerID.current = setInterval(() => changeTime(prevTime => prevTime + 1), 1000);
+    }
+
+    const saveToLocalStorage = () => {
+        const state = {
+            time: time,
+            isStarted: isStarted
+        };
+        localStorage.setItem('state', JSON.stringify(state));
+    }
+
+    useEffect(() => {
+        saveToLocalStorage();
+    }, [time])
+
+
+    useEffect(() => {
+        saveToLocalStorage();
+        isStarted ? setTimer() : clearInterval(timerID.current);
+        return () => {
+            clearInterval(timerID.current);
+        };
+    }, [isStarted]);
+
+
+    return(
+        <div>
+            <h1>React Timer</h1>
+            <h3>{ time }</h3>
+            { isStarted ? <button onClick={ handleStartStop }>stop</button> : <button onClick={ handleStartStop }>start</button>}
+            <button onClick={ handleReset }>reset</button>
+        </div>
+    );
+
+};
+
 
 export default Timer;
