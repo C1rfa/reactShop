@@ -12,6 +12,7 @@ export const Item = props => {
             name: props.name,
             description: props.description,
             price: props.price,
+            image: props.image,
         });
     };
 

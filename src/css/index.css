@@ -46,6 +46,34 @@ main {
   background-color: rgb(56, 56, 56);
 }
 
+.cart-list {
+  overflow: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  width: 50rem;
+  max-height: 95%;
+  max-width: 95%;
+  box-shadow: inset -1px 3px 8px 5px #1f87ff, 2px 5px 16px 0px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+.cart-image {
+  width: 100px;
+  height: 100px;
+}
+
+.cart-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.cart-pi-icon {
+  width: 25px;
+  height: 25px;
+}
+
 @media (min-width: 767px ) {
   .cart {
     top: 5rem;

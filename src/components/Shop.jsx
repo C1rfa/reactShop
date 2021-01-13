@@ -5,6 +5,7 @@ import { Preloader } from './Preloader';
 import { Timer } from './Timer';
 import { ItemList } from './ItemList';
 import { Cart } from './Cart';
+import { CartList } from './CartList';
 
 import { API_FORTNITE_KEY, API_FORTNITE_URL } from './../config';
 
@@ -15,32 +16,59 @@ export const Shop = props => {
     const [order, setOrder] = React.useState([]);
 
     const [isLoading, setLoading] = React.useState(true);
+    const [isCartShow, setCartShow] = React.useState(false);
 
     const [featuredEndDate, setFeaturedEndDate] = React.useState(null);
     const [dailyEndDate, setDailyEndDate] = React.useState(null);
 
 
-    const addToCart = item => {
-        const itemIndex = order.findIndex(orderItem => orderItem.id === item.id);
+    const handleCart = () => {
+        setCartShow(!isCartShow);
+    }
 
-        if(itemIndex < 0) {
-            const oldItem = daily.find(obj => obj.id === item.id) || featured.find( obj => obj.id === item.id );
-            const newItem = {
-                ...item,
-                quantity: 1,
-            };
-            oldItem.isInBasket = true;
-            setOrder([...order, newItem])
-        } else {
-            const newOrder = order.forEach((item, ind) => {
-                if(itemIndex === ind) {
+    const addToCart = item => {
+        const oldItem = daily.find(obj => obj.id === item.id) || featured.find( obj => obj.id === item.id );
+        const newItem = {
+            ...item,
+            quantity: 1,
+        };
+        oldItem.isInBasket = true;
+        setOrder([...order, newItem])
+    };
+
+    const handleCartItemQuanity = (id, action) => {
+        const newOrder = order.map( item => {
+            if (item.id === id) {
+                if(action === 'plus') {
                     item.quantity += 1;
+                } else if(action === 'minus') {
+                    item.quantity -= 1;
                 }
-            }); 
+            }
+            return item;
+        });
+        setOrder(newOrder);
+    };
+
+    const removeItem = id => {
+        const newOrder = order.filter(item => item.id !== id);
+        const item = featured.find(item => item.id === id) || daily.find(item => item.id === id);
+        item.isInBasket = false;
+        setOrder(newOrder);
+    };
+
+    const remadeCart = () => {
+        if (order.length) {
+            const newOrder = order.map(item => {
+                const oldItem = daily.find(obj => obj.id === item.id) || featured.find(obj => obj.id === item.id);
+                oldItem.isInBasket = true;
+                item.name = oldItem.name;
+                item.description = oldItem.description;
+                return item;
+            });
             setOrder(newOrder);
         }
     };
-
 
     const getGoods = () => {
         axios({
@@ -63,19 +91,20 @@ export const Shop = props => {
         });
     };
 
+    //Using when language has been changed.
     React.useEffect( ()=> {
-       getGoods();
-    }, []);
-
-    React.useEffect( ()=> {
-        setLoading(true);
         getGoods();
-        setOrder([]);
     }, [props.lang]);
+
+    //Remade cart when daily/featured items comes. Mostly needs when language chnage has been toggled.
+    React.useEffect(()=>{
+        remadeCart();
+    }, [daily, featured]);
+
 
     return(<>
         <main>
-            <Cart quantity={ order.length }/>
+            <Cart quantity={ order.length } handleCart={ handleCart }/>
             { isLoading ? 
                 <Preloader/> : 
                 <>
@@ -89,6 +118,9 @@ export const Shop = props => {
                         <ItemList items={ daily } setOrder={ addToCart } lang={ props.lang }/>
                     </div>
                 </> }
+                { isCartShow ?
+                    <CartList order={ order } removeItem={ removeItem }  handleCartItemQuanity={ handleCartItemQuanity } closeCart={ handleCart } lang={ props.lang }/> : ''
+                }
         </main>
     </>);
 };

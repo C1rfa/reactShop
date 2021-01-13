@@ -7,9 +7,9 @@ export const Cart = props => {
     const { quantity=0 } = props;
     
     return (
-        <div className="cart">
+        <div className="cart" onClick={ props.handleCart }>
             <img src={ shoppingCartPic } alt="my cart" className="cart-icon"/>
-            { quantity > 0 ? <span className="fw-bold fs-5 text-white cart-quantity">{ quantity }</span> : '' }
+            { quantity ? <span className="fw-bold fs-5 text-white cart-quantity">{ quantity }</span> : '' }
         </div>
     );
 };
