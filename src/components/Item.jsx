@@ -4,8 +4,6 @@ import toCartPic from './../img/add-to-cart.svg';
 import dollarPic from './../img/dollar.svg';
 
 export const Item = props => {
-
-
     const addToCart = () => {
         props.setOrder({
             id: props.id,

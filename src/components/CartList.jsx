@@ -12,11 +12,7 @@ export const CartList = props => {
         props.closeCart();
     }
 
-    let total = 0;
-
-    props.order.forEach( item => {
-        total += item.quantity * item.price;
-    });
+    const total = props.order.reduce((sum, item) => { return sum+=item.price * item.quantity }, 0)
 
     return(
         <ul className="list-group cart-list">

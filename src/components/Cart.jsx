@@ -2,7 +2,6 @@ import React from 'react';
 
 import  shoppingCartPic from './../img/shopping-cart.svg';
 
-
 export const Cart = props => {
     const { quantity=0 } = props;
     

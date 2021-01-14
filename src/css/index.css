@@ -54,9 +54,10 @@ main {
   transform: translate(-50%, -50%);
   background-color: #ffffff;
   width: 50rem;
-  max-height: 95%;
+  max-height: 75%;
   max-width: 95%;
   box-shadow: inset -1px 3px 8px 5px #1f87ff, 2px 5px 16px 0px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  animation: show 500ms ease-in-out;
 }
 
 .cart-image {
@@ -72,6 +73,18 @@ main {
 .cart-pi-icon {
   width: 25px;
   height: 25px;
+}
+
+
+@keyframes show {
+  from {
+    top: 70%;
+    opacity: 0;
+  }
+  to {
+    top: 50%;
+    opacity: 1;
+  }
 }
 
 @media (min-width: 767px ) {

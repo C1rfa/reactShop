@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from 'axios';
 import React from 'react';
 
@@ -33,7 +34,7 @@ export const Shop = props => {
             quantity: 1,
         };
         oldItem.isInBasket = true;
-        setOrder([...order, newItem])
+        setOrder([...order, newItem]);
     };
 
     const handleCartItemQuanity = (id, action) => {
@@ -118,9 +119,7 @@ export const Shop = props => {
                         <ItemList items={ daily } setOrder={ addToCart } lang={ props.lang }/>
                     </div>
                 </> }
-                { isCartShow ?
-                    <CartList order={ order } removeItem={ removeItem }  handleCartItemQuanity={ handleCartItemQuanity } closeCart={ handleCart } lang={ props.lang }/> : ''
-                }
+                { isCartShow && <CartList order={ order } removeItem={ removeItem }  handleCartItemQuanity={ handleCartItemQuanity } closeCart={ handleCart } lang={ props.lang }/> }
         </main>
     </>);
 };

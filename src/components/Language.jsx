@@ -9,7 +9,6 @@ export const Language = props => {
         props.setLang(e.target.id);
     }
 
-
     return(
         <div className="d-flex justify-content-evenly">
             <img onClick={ clickHandler } id="ru" src={ rusPic } alt="Rus" className="cart-icon"/>

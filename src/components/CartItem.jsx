@@ -4,8 +4,6 @@ import removePic from './../img/rubbish-bin.svg';
 import minusPic from './../img/minus.svg';
 import plusPic from './../img/add.svg';
 
-
-
 export const CartItem = props => {
 
     const removeItem = () => {
