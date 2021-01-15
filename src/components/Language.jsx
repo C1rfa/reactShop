@@ -1,12 +1,15 @@
 import React from 'react';
 
+import { ShopContext } from "./../context";
+
 import rusPic from './../img/russia.svg';
 import usPic from './../img/united-states.svg'; 
 
 export const Language = props => {
+    const { switchLanguage } = React.useContext(ShopContext);
 
     const clickHandler = e => {
-        props.setLang(e.target.id);
+        switchLanguage(e.target.id);
     }
 
     return(

@@ -1,32 +1,35 @@
 import React from 'react';
 
+import { ShopContext } from './../context';
+
 import { CartItem } from './CartItem';
 
 import closePic from './../img/close.svg';
 
 export const CartList = props => {
+    const { isCartShow, order, lang, switchIsCartShow } = React.useContext(ShopContext);
 
-    const items = props.order.map( item => <CartItem key={ item.id } removeItem={ props.removeItem }  handleCartItemQuanity={ props.handleCartItemQuanity } { ...item }/>)
+    const items = order.map( item => <CartItem key={ item.id } removeItem={ props.removeItem }  handleCartItemQuanity={ props.handleCartItemQuanity } { ...item }/>)
 
     const closeCart = () => {
-        props.closeCart();
-    }
+        switchIsCartShow(!isCartShow);
+    };
 
-    const total = props.order.reduce((sum, item) => { return sum+=item.price * item.quantity }, 0)
+    const total = order.reduce((sum, item) => { return sum+=item.price * item.quantity }, 0)
 
     return(
         <ul className="list-group cart-list">
             <li className="list-group-item active fw-bold fs-2 text-center">
                 <div className="d-grid d-flex justify-content-between align-items-center">
-                    { props.lang === 'en' ? 'Cart' : props.lang === 'ru' ? 'Корзина' : '' }
+                    { lang === 'en' ? 'Cart' : lang === 'ru' ? 'Корзина' : '' }
                     <button type="button" className="btn" onClick={ closeCart }>
                         <img src={ closePic } alt="close" className="cart-icon"/>
                     </button>
                 </div>
             </li>
-                { items.length ? items : props.lang === 'en' ? 'Empty' : props.lang === 'ru' ? 'Пусто' : '' }
+                { items.length ? items : lang === 'en' ? 'Empty' : lang === 'ru' ? 'Пусто' : '' }
             <li className="list-group-item active fw-bold fs-2">
-                { props.lang === 'en' ? 'Total: ' + total : props.lang === 'ru' ? 'Общаяя стоимость: ' + total : '' }
+                { lang === 'en' ? 'Total: ' + total : lang === 'ru' ? 'Общаяя стоимость: ' + total : '' }
             </li>
         </ul>
     );

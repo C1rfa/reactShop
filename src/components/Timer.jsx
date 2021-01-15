@@ -1,7 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 
+import { ShopContext } from './../context';
+
 export const Timer = props => {
+    const { lang } = React.useContext(ShopContext);
+
     const [endDate, ] = React.useState(new Date(props.endDate).getTime());
     const [currentDate, setCurrentDate] = React.useState(new Date().getTime());
     const [title, ] = React.useState(props.title);
@@ -55,7 +59,7 @@ export const Timer = props => {
     return(
         <div className="container">
             <div className="row text-center mt-5 mb-2">
-              <h2 className="text-uppercase"> {props.lang === 'en' ? "till end of " : props.lang === 'ru' ? "Сегодняшние " : ""} { title }</h2>
+              <h2 className="text-uppercase"> {lang === 'en' ? "till end of " : lang === 'ru' ? "Сегодняшние " : ""} { title }</h2>
             </div>
             <div className="row justify-content-center border rounded-pill border-danger border-4 fw-bold fs-1" id="countdown">
                 { hoursRef.current } : { minutesRef.current } : { secondsRef.current }
