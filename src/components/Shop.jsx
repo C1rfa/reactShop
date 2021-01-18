@@ -42,7 +42,7 @@ export const Shop = props => {
         getGoods();
     }, [lang]);
 
-    //Remade cart when daily/featured items comes. Mostly needs when language chnage has been toggled.
+    //Remade cart when daily/featured items comes. Mostly needs when language has been changed.
     React.useEffect(()=>{
         remadeCart();
     }, [daily, featured]);
