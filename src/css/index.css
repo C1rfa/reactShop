@@ -94,6 +94,19 @@ main {
   }
 }
 
+@media (min-width: 375px) {
+  .card {
+    width: 345px !important ; 
+  }
+}
+
+@media (min-width: 1024px) {
+  .goods {
+    grid-gap: 0.25rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
 /* Preloader */
 .preloader-wrapper{
   position:absolute;
