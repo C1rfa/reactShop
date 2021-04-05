@@ -1,4 +1,6 @@
 import React from 'react';
+import styles from './../css/footer.module.css';
+
 
 import { ShopContext } from "./../context";
 
@@ -13,9 +15,13 @@ export const Language = props => {
     }
 
     return(
-        <div className="d-flex justify-content-evenly">
-            <img onClick={ clickHandler } id="ru" src={ rusPic } alt="Rus" className="cart-icon"/>
-            <img onClick={ clickHandler } id="en" src={ usPic } alt="Eng" className="cart-icon"/>
+        <div className={ styles.langContainer }>
+            <div className={ styles.picContEn }>
+                <img onClick={ clickHandler } id="en" src={ usPic } alt="Eng"/>
+            </div>
+            <div className={ styles.picContRu }>
+                <img onClick={ clickHandler } id="ru" src={ rusPic } alt="Rus"/>
+            </div>
         </div>
     );
 }

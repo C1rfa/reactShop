@@ -49,8 +49,8 @@ export const Shop = props => {
 
 
     return(<>
-        <main>
-            <Cart />
+        <main className="content">
+            {/* <Cart /> */}
             { isLoading ? 
                 <Preloader/> : 
                 <>

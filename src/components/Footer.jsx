@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './../css/footer.module.css';
 
 import { ShopContext } from "./../context";
 
@@ -8,8 +9,8 @@ export const Footer = props => {
     const { lang } = React.useContext(ShopContext);
 
     return (
-        <footer className="bg-dark text-center text-lg-start">
-            <div className="text-center p-3 text-white">
+        <footer className={ styles.mainFooter }>
+            <div className={ styles.footerCopyright }>
                 © { new Date().getFullYear() } { lang === 'en' ? "for Portfolio" : lang === "ru" ? "для портфолио" : '' }
             </div>
             <Language/>

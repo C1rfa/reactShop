@@ -1,5 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
+import styles from './../css/timer.module.css';
+
 
 import { ShopContext } from './../context';
 
@@ -57,11 +59,9 @@ export const Timer = props => {
     }, [endDate]);
 
     return(
-        <div className="container">
-            <div className="row text-center mt-5 mb-2">
-              <h2 className="text-uppercase"> {lang === 'en' ? "till end of " : lang === 'ru' ? "Сегодняшние " : ""} { title }</h2>
-            </div>
-            <div className="row justify-content-center border rounded-pill border-danger border-4 fw-bold fs-1" id="countdown">
+        <div className={ styles.timerContainer }>
+            <h2 className={ styles.timerTitle }> {lang === 'en' ? "till end of " : lang === 'ru' ? "Сегодняшние " : ""} { title }</h2>
+            <div className={ styles.timerCount }>
                 { hoursRef.current } : { minutesRef.current } : { secondsRef.current }
             </div>
         </div>

@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -105,6 +105,35 @@ main {
     grid-gap: 0.25rem;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
+} */
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Recursive:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Recursive:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Recursive:wght@400&display=swap');
+
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  height: 100%;
+  grid-template-rows: 4.5rem auto 4.5rem;
+  margin: auto 0;
+}
+
+.goods {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(27rem, auto));
+  margin-bottom: 2rem;
 }
 
 /* Preloader */

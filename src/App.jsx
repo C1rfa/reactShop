@@ -9,12 +9,12 @@ import { Shop } from "./components/Shop";
 
 export const App = props => {
     return(
-        <div>
+        <>
             <ContextProvider>
                 <Header/>
                 <Shop/>
                 <Footer/>
             </ContextProvider>
-        </div>
+        </>
     );
 }
