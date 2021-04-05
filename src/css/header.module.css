@@ -1,0 +1,45 @@
+.mainHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 1rem;
+    height: 100%;
+
+    background-color: #390099;
+
+    font-family: 'Lato', sans-serif;
+}
+
+.headerLogo {
+    width: 3.5rem;
+    height: 3.5rem;
+    transition: transform 500ms 250ms;
+}
+
+.headerLogo:hover {
+    animation: logoAnim 250ms;
+    transform: rotateZ(360deg);       
+}
+
+.headerLink {
+    color: #ffbd00;
+    text-decoration: none;
+    transition: color 200ms ease-in;
+}
+
+.headerLink:hover {
+    color: #ff5400;
+}
+
+@keyframes logoAnim {
+    0% {
+        margin-bottom: 0;
+    }
+    50% {
+        margin-bottom: 15px;
+    }
+    100% {
+        margin-bottom: 0;
+    }
+}

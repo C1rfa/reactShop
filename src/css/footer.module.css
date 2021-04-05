@@ -1,0 +1,59 @@
+.mainFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+
+    background-color: #390099;
+
+    height: 100%;
+}
+
+.footerCopyright {
+    color: #ffbd00;
+    margin: 0 auto;
+    font-family: 'Lato', sans-serif;
+}
+
+/* Language styles */
+
+.langContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 2.5rem;
+    width: 5.0rem;
+}
+
+
+.picContEn,
+.picContRu {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border-right: black 2px solid;
+    cursor: pointer;
+}
+
+.picContRu {
+    transform: rotateY(-180deg);
+}
+
+.picContRu img:hover,
+.picContEn img:hover {
+    margin-left: 0;
+}
+
+.picContRu img,
+.picContEn img 
+{
+    position: absolute;
+    margin-left: 50%;
+    height: 100%;
+    width: 100%;
+    transition: margin-left 200ms ease;
+}
+
+
+

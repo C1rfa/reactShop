@@ -1,0 +1,25 @@
+.timerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 1rem;
+    border-radius: 20px;
+  }
+
+.timerTitle {
+    margin: 0;
+    margin-bottom: 0.6rem;
+    text-transform: uppercase;
+    font-family: 'Recursive', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.timerCount {
+    text-transform: uppercase;
+    font-family: 'Recursive', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem; 
+}

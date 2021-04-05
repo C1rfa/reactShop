@@ -1,0 +1,131 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 27rem;
+    height: 40rem;
+    margin-top: 2rem;
+    perspective: 1000px;
+}
+
+.cardInner:hover {
+    transform: rotateY(180deg);
+    box-shadow: -5px -5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.cardInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    box-shadow: 5px -5px 2px rgba(0, 0, 0, 0.2);
+
+    transition: transform 1s, box-shadow 0.2s;
+    transform-style: preserve-3d;
+}
+
+.cardBack {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    flex-direction: column;
+    background-color: #cb997e;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+}
+
+.cardTitle {
+    font-family: 'Recursive', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+
+    margin: 0.5rem 0.3rem;
+}
+
+.cardDescription {
+    margin: 0.5rem 0;
+    font-family: 'Recursive', sans-serif;
+    font-weight: 300;
+    font-size: 1.3rem;
+    text-align: center;
+
+}
+
+.cardFront {
+    position: absolute;
+    background-color: #ffe8d6;
+    width: 100%;
+    height: 100%;
+}
+
+.cardFront img {
+    width: 100%;
+    height: 100%;
+}
+
+.cardFooter {
+    display: flex;
+    justify-content: center;
+    align-items:  center;
+    background-color: #ddbea9;
+    border: #cb997e 2px solid;
+    height: 25%;
+
+    box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.cardFooter p {
+    padding-left: 0.5rem;
+}
+
+.cardFooter img {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.addToCart,
+.inCart {
+    border: #cb997e 2px solid;
+    border-top: none;
+    width: 100%;
+    height: 25%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Recursive', sans-serif;
+    font-weight: 400;
+
+    box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.addToCart {
+    background-color: #ffe8d6;
+    transition: background-color 200ms linear;
+}
+
+.inCart {
+    margin: 0;
+    background-color: #06d6a0;
+}
+
+.addToCart:active,
+.addToCart:focus {
+    border: none;
+    outline: none;
+}
+
+
+.addToCart:hover {
+    background-color: #cb997e;
+}
+
+.addToCart img {
+    width: 20%;
+    height: 50%;
+}
