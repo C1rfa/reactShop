@@ -50,7 +50,8 @@ export const Shop = props => {
 
     return(<>
         <main className="content">
-            {/* <Cart /> */}
+            <Cart/>
+            { isCartShow && <CartList/> }
             { isLoading ? 
                 <Preloader/> : 
                 <>
@@ -64,7 +65,6 @@ export const Shop = props => {
                         <ItemList items={ daily }/>
                     </div>
                 </> }
-                { isCartShow && <CartList/> }
         </main>
     </>);
 };

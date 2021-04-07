@@ -1,4 +1,6 @@
 import React from 'react';
+import styles from './../css/cart.module.css';
+
 
 import { ShopContext } from './../context';
 
@@ -18,19 +20,21 @@ export const CartList = props => {
     const total = order.reduce((sum, item) => { return sum+=item.price * item.quantity }, 0)
 
     return(
-        <ul className="list-group cart-list">
-            <li className="list-group-item active fw-bold fs-2 text-center">
-                <div className="d-grid d-flex justify-content-between align-items-center">
-                    { lang === 'en' ? 'Cart' : lang === 'ru' ? 'Корзина' : '' }
-                    <button type="button" className="btn" onClick={ closeCart }>
-                        <img src={ closePic } alt="close" className="cart-icon"/>
+        <div className={ styles.cartBack }>
+            <div className={ styles.cartList }>
+                <div className={ styles.cartHeader }>
+                    <span>{ lang === 'en' ? 'Cart' : lang === 'ru' ? 'Корзина' : '' }</span>
+                    <button className={ styles.cartClose }  onClick={ closeCart }>
+                        <img src={ closePic } alt="close cart"/>
                     </button>
                 </div>
-            </li>
-                { items.length ? items : lang === 'en' ? 'Empty' : lang === 'ru' ? 'Пусто' : '' }
-            <li className="list-group-item active fw-bold fs-2">
-                { lang === 'en' ? 'Total: ' + total : lang === 'ru' ? 'Общаяя стоимость: ' + total : '' }
-            </li>
-        </ul>
+                <li className={ styles.cartContent }>
+                    { items.length ? items : lang === 'en' ? <span>Empty</span> : lang === 'ru' ? <span>Пусто</span> : '' }
+                </li>
+                <div className={ styles.cartFooter }>
+                    { lang === 'en' ? 'Total: ' + total : lang === 'ru' ? 'Общаяя стоимость: ' + total : '' }
+                </div>
+            </div>
+        </div>
     );
 }

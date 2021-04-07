@@ -1,4 +1,6 @@
 import React from 'react';
+import styles from './../css/cart.module.css';
+
 
 import { ShopContext } from './../context';
 
@@ -12,9 +14,9 @@ export const Cart = props => {
     };
     
     return (
-        <div className="cart" onClick={ handleCart }>
-            <img src={ shoppingCartPic } alt="my cart" className="cart-icon"/>
-            { order.length ? <span className="fw-bold fs-5 text-white cart-quantity">{ order.length }</span> : '' }
+        <div className={ styles.cart } onClick={ handleCart }>
+            <img src={ shoppingCartPic } alt="cart"/>
+            { order.length ? <span className={ styles.cartQuantity }>{ order.length }</span> : '' }
         </div>
     );
 };

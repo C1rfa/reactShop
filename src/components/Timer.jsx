@@ -60,7 +60,7 @@ export const Timer = props => {
 
     return(
         <div className={ styles.timerContainer }>
-            <h2 className={ styles.timerTitle }> {lang === 'en' ? "till end of " : lang === 'ru' ? "Сегодняшние " : ""} { title }</h2>
+            <h2 className={ styles.timerTitle }> {lang === 'en' ? "till the end of " : lang === 'ru' ? "Сегодняшние " : ""} { title }</h2>
             <div className={ styles.timerCount }>
                 { hoursRef.current } : { minutesRef.current } : { secondsRef.current }
             </div>

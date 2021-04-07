@@ -123,16 +123,26 @@ html {
 }
 
 body {
+  height: 100%;
+}
+
+#root {
+  position: relative;
   display: grid;
   height: 100%;
   grid-template-rows: 4.5rem auto 4.5rem;
   margin: auto 0;
 }
 
+.content {
+  /* position: relative; */
+  /* padding-top: 1.5rem; */
+}
+
 .goods {
   display: grid;
   justify-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(27rem, auto));
+  grid-template-columns: repeat(auto-fill, minmax(21rem, auto));
   margin-bottom: 2rem;
 }
 

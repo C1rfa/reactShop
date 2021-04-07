@@ -1,8 +1,8 @@
 .card {
     display: flex;
     flex-direction: column;
-    width: 27rem;
-    height: 40rem;
+    width: 20rem;
+    height: 30rem;
     margin-top: 2rem;
     perspective: 1000px;
 }
@@ -42,6 +42,8 @@
     font-family: 'Recursive', sans-serif;
     font-weight: 700;
     font-size: 2rem;
+
+    text-align: center;
 
     margin: 0.5rem 0.3rem;
 }
